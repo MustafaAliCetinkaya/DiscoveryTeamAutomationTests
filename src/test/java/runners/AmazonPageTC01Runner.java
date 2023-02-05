@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "stepDefinitions",
         tags = "@amazonSearch",
-        dryRun = false
+        dryRun = false          //False-->Means directly start the tests / True-->Check for the missing methods, do not run
 )
-public class Runner {
+public class AmazonPageTC01Runner {
 
 }

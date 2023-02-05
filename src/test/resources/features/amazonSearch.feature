@@ -7,4 +7,3 @@ Feature: Amazon Search
     And user adds the selected items to the cart one by one
     And user goes to the cart
     And user goes to the checkout page
-    And user fills the related fields for payment
