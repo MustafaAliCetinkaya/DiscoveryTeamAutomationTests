@@ -28,7 +28,7 @@ public class AmazonPage {
     @FindBy(xpath = "//*[@id=\"a-autoid-0-announce\"]")
     public WebElement sort;
 
-    //@FindBy(xpath = "//a[contains(text(),'Price: Low to High')]")
+    //@FindBy(xpath = "//*[contains(text(),'Price: Low to High')]")
     @FindBy(css = "a#s-result-sort-select_1")
     public WebElement sortByPriceLowToHigh;
 
@@ -55,7 +55,7 @@ public class AmazonPage {
 
     public void searchItem(String item) {
         searchBox.sendKeys(item + Keys.ENTER);
-        ReusableMethods.waitForPageToLoad(Driver.getDriver(),10000);
+        ReusableMethods.waitFor(5);
     }
 
 

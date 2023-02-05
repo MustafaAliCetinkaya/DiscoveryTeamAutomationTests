@@ -11,6 +11,6 @@ import org.junit.runner.RunWith;
         tags = "@amazonSearch",
         dryRun = false          //False-->Means directly start the tests / True-->Check for the missing methods, do not run
 )
-public class AmazonPageTC01Runner {
+public class AmazonPageTestCase01_Runner {
 
 }
