@@ -21,7 +21,7 @@ public class AmazonPage {
     @FindBy(xpath = "(//span[.='Add to Cart']//span)[1]")
     public WebElement addToCart;
 
-    @FindBy(css = "span.a-dropdown-label")
+    @FindBy(xpath = "//span[.='Featured']")
     public WebElement sort;
 
     @FindBy(css = "a#s-result-sort-select_1")
