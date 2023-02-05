@@ -1,18 +1,16 @@
 package pages;
 
-import com.cydeo.reusableMethods.base.TestBase;
-import com.cydeo.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
 
-public class MigrosPage extends TestBase {
-    public WebDriver driver = Driver.getDriver();
+public class MigrosPage {
 
     public MigrosPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "//button[.='Tümünü Kabul Et']")

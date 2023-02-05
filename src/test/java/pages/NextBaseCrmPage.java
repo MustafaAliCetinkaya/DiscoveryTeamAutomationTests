@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
-public interface NextBaseCrmPage {
+public class NextBaseCrmPage {
 
     /*
     This method will log in with helpdesk1@cybertekschool.com
@@ -29,7 +29,7 @@ public interface NextBaseCrmPage {
         loginButton.click();
     }
 
-     default void crm_login(WebDriver driver){//Interface is By Default public
+     public void crm_login(WebDriver driver){//Interface is By Default public
         //3. Enter valid username
         WebElement inputUsername = Driver.getDriver().findElement(By.xpath("//input[@name='USER_LOGIN']"));
         inputUsername.sendKeys("helpdesk1@cybertekschool.com");
@@ -46,7 +46,7 @@ public interface NextBaseCrmPage {
         loginButton.click();
     }
 
-     default void crm_login(WebDriver driver, String username, String password){
+     public void crm_login(WebDriver driver, String username, String password){
         //3. Enter valid username
         WebElement inputUsername = Driver.getDriver().findElement(By.xpath("//input[@name='USER_LOGIN']"));
         inputUsername.sendKeys(username);

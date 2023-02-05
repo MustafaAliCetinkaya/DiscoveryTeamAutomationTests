@@ -1,7 +1,5 @@
 package pages;
 
-import com.cydeo.reusableMethods.base.TestBase;
-import com.cydeo.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,11 +8,13 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import utilities.Driver;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class CydeoPracticePage extends TestBase {
+public class CydeoPracticePage {
 
     public static WebDriver driver = Driver.getDriver();
 
