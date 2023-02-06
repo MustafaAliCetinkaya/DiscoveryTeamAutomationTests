@@ -3,10 +3,11 @@ package utilities;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -169,6 +170,141 @@ public class ReusableMethods {
 
         return temp;
 
+    }
+
+    //====== js ======//
+    public static void jsClick(WebElement webElement){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", webElement);
+        try {
+            webElement.click();
+        } catch (Exception e) {
+            JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+            executor.executeScript("arguments[0].click();", webElement);
+        }
+    }
+
+    public static void visibilityOfWait(WebElement webElement) {
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+
+    public static Actions getActions() {
+
+        Actions actions;
+        return actions = new Actions(Driver.getDriver());
+    }
+
+
+    public static Select select(WebElement ddm) {
+
+        Select select;
+        return select = new Select(ddm);
+    }
+
+    public static Random random() { //
+
+        Random random;
+        return random = new Random();
+    }
+
+    //Auto date select
+    public static void selectDropDown(WebElement element){
+
+        List<WebElement> list = ReusableMethods.select(element).getOptions();
+        int index = ReusableMethods.random().nextInt(list.size());
+        while (index == 0){
+            index = ReusableMethods.random().nextInt(list.size());
+        }
+        ReusableMethods.select(element).selectByIndex(index);
+    }
+
+
+    public static void selectDdmIndex(WebElement element) {
+
+        List<WebElement> list = select(element).getOptions();
+
+        int index = random().nextInt(list.size());
+
+        select(element).selectByIndex(index);
+    }
+
+    public static String dateMonth() {
+
+        String month;
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM");
+        return month = dateTime.format(formatter);
+    }
+
+    public static String dateYear() {
+
+        String year;
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+        return year = localDateTime.format(formatter);
+
+    }
+
+
+    //===============Explicit Wait==============//
+    public static WebElement waitForVisibility(int timeout, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),  timeout);
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static WebElement waitForVisibility(int timeout,By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public static WebElement waitForClickablility(int timeout, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static WebElement waitForClickablility(int timeout,By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+
+    public static void waitForPageToLoad(long timeout) {
+        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
+        try {
+            System.out.println("Waiting for page to load...");
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+            wait.until(expectation);
+        } catch (Throwable error) {
+            System.out.println(
+                    "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
+        }
+    }
+
+
+    //====== JS Scroll Click ====//
+    public static void jsScrollClick(WebElement webElement) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        try {
+            webElement.click();
+        } catch (Exception e) {
+            js.executeScript("arguments[0].scrollIntoView(true);", webElement);
+            js.executeScript("arguments[0].click()", webElement);
+            waitFor(1);
+        }
+    }
+
+    //====== JS Scroll ====//
+    public static void jsScroll(WebElement webElement) {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
 
 }
