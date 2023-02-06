@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import pages.AutomationPage;
 import utilities.ConfigurationReader;
@@ -60,7 +61,8 @@ public class UI_TC01_RegisterUser {
     public void fillDetailsTitleNameEmailPasswordDateOfBirth() {
         auto.mr.click();
         ReusableMethods.getActions().sendKeys(Keys.TAB).sendKeys(Keys.TAB)
-                .sendKeys(ReusableMethods.getFaker().internet().password()).perform();
+                .sendKeys(ReusableMethods.getFaker().internet().password()).pause(2).perform();
+        ReusableMethods.waitFor(2);
         ReusableMethods.jsScrollClick(auto.day);
         ReusableMethods.selectDropDown(auto.day);
         ReusableMethods.selectDropDown(auto.month);
@@ -116,6 +118,11 @@ public class UI_TC01_RegisterUser {
 
     @And("Click Continue button")
     public void clickContinueButton() {
+/*        //Close the goddamn ad window
+        Driver.getDriver().switchTo().frame("aswift_5");
+        Driver.getDriver().switchTo().frame("ad_iframe");
+        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
+        Driver.getDriver().switchTo().parentFrame();*/
         ReusableMethods.forceToClick(Driver.getDriver(), auto.continueButton);
 
     }
