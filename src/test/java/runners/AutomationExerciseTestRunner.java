@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@amazonSearch",
+        tags = "@TC001",
         dryRun = false          //False-->Means directly start the tests / True-->Check for the missing methods, do not run
 )
-public class AmazonPageTestCase01_Runner {
+public class AutomationExerciseTestRunner {
 
 }

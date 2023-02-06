@@ -1,5 +1,6 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -306,5 +307,13 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
+
+
+    public static Faker getFaker() {
+
+        Faker faker;
+        return faker = new Faker();
+    }
+
 
 }
