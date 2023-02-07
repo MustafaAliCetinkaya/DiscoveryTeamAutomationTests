@@ -5,7 +5,6 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import pages.AutomationPage;
 import utilities.ConfigurationReader;
@@ -118,24 +117,18 @@ public class UI_TC01_RegisterUser {
 
     @And("Click Continue button")
     public void clickContinueButton() {
-/*        //Close the goddamn ad window
-        Driver.getDriver().switchTo().frame("aswift_5");
-        Driver.getDriver().switchTo().frame("ad_iframe");
-        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
-        Driver.getDriver().switchTo().parentFrame();*/
-        ReusableMethods.forceToClick(Driver.getDriver(), auto.continueButton);
-
+        ReusableMethods.visibilityOfWait(auto.continueButton);
+        ReusableMethods.jsClick(auto.continueButton);
     }
 
     @Then("Verify that Logged in as username is visible")
     public void verifyThatLoggedInAsUsernameIsVisible() {
-        Driver.getDriver().navigate().refresh();
         auto.logged.isDisplayed();
     }
 
     @And("Click Delete Account button")
     public void clickDeleteAccountButton() {
-        ReusableMethods.jsScrollClick(auto.delete);
+        ReusableMethods.jsClick(auto.delete);
     }
 
     @And("Verify that ACCOUNT DELETED! is visible and click Continue button")
@@ -143,4 +136,5 @@ public class UI_TC01_RegisterUser {
         auto.accountDelete.isDisplayed();
 
     }
+
 }

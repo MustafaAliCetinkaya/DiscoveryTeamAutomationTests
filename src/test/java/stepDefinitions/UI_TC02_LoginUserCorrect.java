@@ -17,7 +17,7 @@ public class UI_TC02_LoginUserCorrect {
         Assert.assertTrue(page.loginToYourAccountText.isDisplayed());
     }
     @And("Enter correct email address and password")
-    public void enterCorrectEmailAddressAndPassword() {
+    public void enterCorrectEmailAddressAndPassword() {//Linked with Register class value--> @Before(order = 1, value = "@TC002")
         page.emailBoxLogin.sendKeys(Register.email);
         page.passwordBoxLogin.sendKeys(Register.password);
     }

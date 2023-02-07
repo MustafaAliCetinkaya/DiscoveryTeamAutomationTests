@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -77,6 +78,13 @@ public class AutomationPage {
 
     @FindBy(xpath = "//*[text()='Account Deleted!']")
     public WebElement accountDelete;
+
+    public void closeAdWindow(){
+        Driver.getDriver().switchTo().frame("aswift_5");
+        Driver.getDriver().switchTo().frame("ad_iframe");
+        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
+        Driver.getDriver().switchTo().parentFrame();
+    }
 
     //TC002
     @FindBy(xpath = "//h2[.='Login to your account']")
