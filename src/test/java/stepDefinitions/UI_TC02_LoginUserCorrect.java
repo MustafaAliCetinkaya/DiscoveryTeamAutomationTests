@@ -28,13 +28,6 @@ public class UI_TC02_LoginUserCorrect {
     @And("Verify that ACCOUNT DELETED! is visible")
     public void verifyThatACCOUNTDELETEDIsVisible() {
         ReusableMethods.jsScrollClick(page.delete);
-        /*
-        //Close the goddamn ad window
-        Driver.getDriver().switchTo().frame("aswift_5");
-        Driver.getDriver().switchTo().frame("ad_iframe");
-        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
-        Driver.getDriver().switchTo().parentFrame();*/
-
         Assert.assertTrue(page.accountDeletedText.isDisplayed());
     }
 }
