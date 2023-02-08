@@ -1,4 +1,4 @@
-package runners;
+package runners.cydeoRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@TC005",
+        tags = "@amazonSearch",
         dryRun = false          //False-->Means directly start the tests / True-->Check for the missing methods, do not run
 )
-public class AutomationExerciseTestRunner {
+public class AmazonPageTestRunner {
 
 }

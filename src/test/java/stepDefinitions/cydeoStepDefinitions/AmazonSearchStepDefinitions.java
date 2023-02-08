@@ -1,9 +1,9 @@
-package stepDefinitions;
+package stepDefinitions.cydeoStepDefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.AmazonPage;
+import pages.cydeoPages.AmazonPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
