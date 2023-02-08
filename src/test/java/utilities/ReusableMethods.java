@@ -16,29 +16,29 @@ import java.util.Set;
 
 public class ReusableMethods {
 
-    public static void verifyPageTitle(WebDriver driver,String expectedTitle){
-        String actualTitle = driver.getTitle();
+    public static void verifyPageTitle(String expectedTitle){
+        String actualTitle = Driver.getDriver().getTitle();
         Assert.assertEquals(actualTitle,expectedTitle, "This is a failure message. Title is not matching!");
     }
 
-    public static void verifyPageUrl(WebDriver driver,String expectedUrl){
-        String actualUrl = driver.getCurrentUrl();
+    public static void verifyPageUrl(String expectedUrl){
+        String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl, "This is a failure message. URL is not matching!");
     }
 
     //========Switching Window=====//
-    public static void switchToWindows(WebDriver driver){
-        Set<String> AllHandles=driver.getWindowHandles();
+    public static void switchToWindows(){
+        Set<String> AllHandles=Driver.getDriver().getWindowHandles();
         for (String eachHandle : AllHandles) {
             System.out.println("Each Handle = " + eachHandle);
-            driver.switchTo().window(eachHandle);
-            System.out.println("Current title while switching windows: " + driver.getTitle());
+            Driver.getDriver().switchTo().window(eachHandle);
+            System.out.println("Current title while switching windows: " + Driver.getDriver().getTitle());
         }
     }
 
     //========Hover Over=====//
-    public static void hover(WebDriver driver,WebElement element) {
-        Actions actions = new Actions(driver);
+    public static void hover(WebElement element) {
+        Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
 
