@@ -16,7 +16,7 @@ Feature: Calculator Tests
     And User clicks "5" on calculator
     Then result "3" should be displayed
 
-
+# change this scenario into DDT format---> turn it into scenario outline
   Scenario Outline: Testing whole functionality
     When User clicks "<button1>" on calculator
     And User clicks "<operator>" on calculator
