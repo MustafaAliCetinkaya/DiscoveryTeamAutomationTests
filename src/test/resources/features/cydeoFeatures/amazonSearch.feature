@@ -1,3 +1,8 @@
+#TAGS: Tags are used to group different scenarios together
+#    - We can use tags to include or exclude some scenarios.
+#    - If we put the @Tag on top of the .feature file, it will effect the whole feature file
+#    - If we put it on top of a Scenario, it will only effect that scenario
+#    - You can have as many tags as you want for a feature file or a scenario
 Feature: Amazon Search
   @amazonSearch
   Scenario: TC01_User should be able to search item at the amazon website

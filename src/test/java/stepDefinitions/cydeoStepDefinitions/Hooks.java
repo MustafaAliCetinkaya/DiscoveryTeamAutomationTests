@@ -8,6 +8,7 @@ In the class we will be able to pass pre- & post- conditions to
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import utilities.BrowserUtils;
 import utilities.Driver;
 
 public class Hooks {
@@ -33,6 +34,7 @@ public class Hooks {
     public void teardownScenario(Scenario scenario){
 
         //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
+        BrowserUtils.sleep(5);
 
 
         if (scenario.isFailed()){
@@ -43,7 +45,6 @@ public class Hooks {
         }
 
 
-        //BrowserUtils.sleep(5);
         Driver.closeDriver();
 
         //System.out.println("====Closing browser using cucumber @After");

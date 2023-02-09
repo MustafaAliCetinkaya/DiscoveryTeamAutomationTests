@@ -27,16 +27,12 @@ public class UI_TC08_VerifyAllProductsAndProductDetailPage {
     public void theProductsListIsVisible() {
         Driver.getDriver().navigate().refresh();
         ReusableMethods.waitFor(3);
-        // int number = 1;
-        // for (WebElement each : page.allProductsList) {
-        //     System.out.println(number + " => " + each.getText());
-        //     number++;
-        // }
 
-        int number = 1;
+        int count = 1;
         for (WebElement each:page.allProduct) {
-            System.out.println(number + " => " + each.getText());
+            System.out.println(count + " => " + each.getText());
             assertTrue(each.isDisplayed());
+            count++;
         }
     }
 
@@ -52,7 +48,7 @@ public class UI_TC08_VerifyAllProductsAndProductDetailPage {
 
     @And("Verify that detail detail is visible: product name, category, price, availability, condition, brand")
     public void verifyThatDetailDetailIsVisibleProductNameCategoryPriceAvailabilityConditionBrand() throws IOException {
-        ReusableMethods.getScreenshotWebElement("Product Information",page.productInformationScreenshot);
+        //ReusableMethods.getScreenshotWebElement("Product Information",page.productInformationScreenshot);
 
         assertTrue(page.productName.isDisplayed());
         assertTrue(page.productCategory.isDisplayed());

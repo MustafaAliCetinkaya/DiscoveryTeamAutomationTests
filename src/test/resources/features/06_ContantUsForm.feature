@@ -1,7 +1,7 @@
 @TC006
-Feature: Contant us form
+Feature: Contact us form
 
-  Scenario: TC006 Contant us form
+  Scenario: TC006 Contact us form
     Given On the user automation homepage
     And Verify that home page is visible successfully
     And Click on Contact Us button

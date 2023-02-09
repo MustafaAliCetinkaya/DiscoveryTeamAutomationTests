@@ -79,13 +79,6 @@ public class AutomationPage {
     @FindBy(xpath = "//*[text()='Account Deleted!']")
     public WebElement accountDelete;
 
-    public void closeAdWindow(){
-        Driver.getDriver().switchTo().frame("aswift_5");
-        Driver.getDriver().switchTo().frame("ad_iframe");
-        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
-        Driver.getDriver().switchTo().parentFrame();
-    }
-
     //TC002
     @FindBy(xpath = "//h2[.='Login to your account']")
     public WebElement loginToYourAccountText;
@@ -168,10 +161,17 @@ public class AutomationPage {
     @FindBy(css = ".btn.btn-success")
     public WebElement homeButtonContact;
 
-    @FindBy(css = ".fa.fa-list")
+    @FindBy(css = "div.item.active div.col-sm-6 a.test_cases_list")
     public WebElement testCasesButton;
     @FindBy(xpath = "//h2[@class='title text-center']")
     public WebElement testCasesTitle;
+
+    public void closeAdWindow(){
+        Driver.getDriver().switchTo().frame("aswift_5");
+        Driver.getDriver().switchTo().frame("ad_iframe");
+        Driver.getDriver().findElement(By.cssSelector("div#dismiss-button")).click();
+        Driver.getDriver().switchTo().defaultContent();
+    }
 
 
     // TC_008
