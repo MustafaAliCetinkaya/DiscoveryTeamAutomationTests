@@ -19,7 +19,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
     @And("Add products to cart")
     public void addProductsToCart() {
         try {
-            ReusableMethods.jsScrollClick(page.firstProductAddToCart);
+            //ReusableMethods.jsScrollClick(page.firstProductAddToCart);
 
         } catch (Exception e) {
 
