@@ -210,7 +210,7 @@ public class AutomationPage {
     public WebElement searchButton;
     @FindBy(css = ".title.text-center")
     public WebElement searchedProducts;
-    @FindBy(xpath = "//*[@class='productinfo text-center']/p")
+    @FindBy(css = "div.productinfo.text-center p")
     public List<WebElement> searchedProductNames;
     @FindBy(xpath = "//*[@class='features_items']")
     public WebElement wantedProduct;

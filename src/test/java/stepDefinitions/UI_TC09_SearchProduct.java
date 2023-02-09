@@ -45,6 +45,6 @@ public class UI_TC09_SearchProduct {
             assertTrue(each.isDisplayed());
         }
         ReusableMethods.jsScroll(page.wantedProduct);
-        //ReusableMethods.getScreenshotWebElement("Wanted Product",page.wantedProduct);
+        ReusableMethods.getScreenshotWebElement("Wanted Product",page.wantedProduct);
     }
 }
