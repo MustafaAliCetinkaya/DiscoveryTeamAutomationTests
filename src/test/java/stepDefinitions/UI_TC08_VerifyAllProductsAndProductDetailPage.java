@@ -62,4 +62,6 @@ public class UI_TC08_VerifyAllProductsAndProductDetailPage {
         assertTrue(page.productBrand.isDisplayed());
     }
 
+
+
 }

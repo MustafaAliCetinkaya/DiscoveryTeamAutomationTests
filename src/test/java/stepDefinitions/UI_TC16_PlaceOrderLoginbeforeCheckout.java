@@ -4,9 +4,9 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.safari.SafariDriver;
 import pages.AutomationPage;
-import utilities.ConfigReader;
+import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static utilities.Driver.getDriver;
-import static utilities.Driver.selectDropDown;
 import static utilities.ReusableMethods.*;
 
 public class UI_TC16_PlaceOrderLoginbeforeCheckout {
@@ -28,7 +27,7 @@ public class UI_TC16_PlaceOrderLoginbeforeCheckout {
 
     @And("Fill email, password and click Login button")
     public void fillEmailPasswordAndClickLoginButton() {
-        getDriver().switchTo().newWindow(WindowType.TAB).get(ConfigReader.getProperty("automationExerciesUrl"));
+        //getDriver().switchTo().newWindow(WindowType.TAB).get(ConfigurationReader.getProperty("automationExercisesUrl"));
         List<String> windows = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(windows.get(1));
 

@@ -133,7 +133,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
         ReusableMethods.waitForVisibility(page.reviewYourOrderHeader, 5);
         Assert.assertTrue(page.reviewYourOrderHeader.isDisplayed());
 
-        ReusableMethods.getScreenshotWebElement("Cart Items",page.cartItemsVerify);
+        //ReusableMethods.getScreenshotWebElement("Cart Items",page.cartItemsVerify);
     }
 
 

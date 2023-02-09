@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import pages.AutomationPage;
-import utilities.ConfigReader;
+import utilities.ConfigurationReader;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -80,8 +80,8 @@ public class UI_TC20_SearchProductsAndVerifyCartAfterLogin {
     public void kullaniciKaydolGirisYapDugmesineTiklarVeGirisBilgileriniGirer() {
 
         jsScrollClick(page.signupLoginLink);
-        page.emailBoxLogin.sendKeys(ConfigReader.getProperty("email2"));
-        page.passwordBoxLogin.sendKeys(ConfigReader.getProperty("password2"));
+        page.emailBoxLogin.sendKeys(ConfigurationReader.getProperty("email2"));
+        page.passwordBoxLogin.sendKeys(ConfigurationReader.getProperty("password2"));
         jsScrollClick(page.loginButton);
     }
 

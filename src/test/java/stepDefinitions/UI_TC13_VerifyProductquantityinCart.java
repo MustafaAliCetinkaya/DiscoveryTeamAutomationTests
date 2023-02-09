@@ -4,8 +4,8 @@ import io.cucumber.java.en.And;
 import pages.AutomationPage;
 import utilities.Driver;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertEquals;
 import static utilities.ReusableMethods.jsScrollClick;
 import static utilities.ReusableMethods.random;
 

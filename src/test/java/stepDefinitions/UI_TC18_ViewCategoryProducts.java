@@ -32,7 +32,7 @@ public class UI_TC18_ViewCategoryProducts {
 
         Driver.getDriver().navigate().refresh();
         ReusableMethods.jsScrollClick(page.women);
-        ReusableMethods.jsclick(page.dress);
+        ReusableMethods.jsClick(page.dress);
         assertTrue(page.active.isDisplayed());
         ReusableMethods.waitForVisibility(page.womenTopProducts,10);
         System.out.println("str = " + str);
@@ -45,7 +45,7 @@ public class UI_TC18_ViewCategoryProducts {
     @Then("Kullanici Sol taraftaki çubukta, {string} kategorisinin herhangi bir alt kategori bağlantısına tıklar")
     public void kullanici_sol_taraftaki_çubukta_kategorisinin_herhangi_bir_alt_kategori_bağlantısına_tıklar(String string) {
         page.men.click();
-        ReusableMethods.jsclick(page.tshirt);
+        ReusableMethods.jsClick(page.tshirt);
     }
     @Then("Kullanicinin o kategori sayfasına yönlendirildiğini doğrular")
     public void kullanicinin_o_kategori_sayfasına_yönlendirildiğini_doğrular() {
