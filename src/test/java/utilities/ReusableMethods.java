@@ -339,7 +339,7 @@ public class ReusableMethods {
         File source = element.getScreenshotAs(OutputType.FILE);
 
         // ekran görüntüsü konumunun tam yolu
-        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + date + ".png";
+        String wElementSS = System.getProperty("user.dir") + "target/generated-test-sources" + name + date + ".png";
         File finalDestination = new File(wElementSS);
 
         // ekran görüntüsünü verilen yola kaydedin

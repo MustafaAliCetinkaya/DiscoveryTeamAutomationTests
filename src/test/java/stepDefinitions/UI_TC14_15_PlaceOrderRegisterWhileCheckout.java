@@ -131,7 +131,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
         ReusableMethods.waitForVisibility(page.reviewYourOrderHeader, 5);
         Assert.assertTrue(page.reviewYourOrderHeader.isDisplayed());
 
-        //ReusableMethods.getScreenshotWebElement("Cart Items",page.cartItemsVerify);
+        ReusableMethods.getScreenshotWebElement("Cart Items",page.cartItemsVerify);
     }
 
 
@@ -144,7 +144,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
     @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")
     public void enterPaymentDetailsNameOnCardCardNumberCVCExpirationDate() {
         ReusableMethods.getActions().click(page.nameOnCardTextBox)
-                .sendKeys("AutomationExcersize Attempt")
+                .sendKeys("AutomationExercise Attempt")
                 .sendKeys(Keys.TAB)
                 .sendKeys(ReusableMethods.getFaker().business().creditCardNumber())
                 .sendKeys(Keys.TAB)

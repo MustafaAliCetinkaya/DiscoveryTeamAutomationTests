@@ -302,6 +302,10 @@ public class AutomationPage {
     @FindBy(xpath = "//tr[1]/td[4]/button")
     public WebElement quantityInCart;
 
+
+    @FindBy(css = "div.table-responsive.cart_info")
+    public WebElement cartItemsVerify;
+
     @FindBy(xpath = "//div[@class='single-products']//*[@class='productinfo text-center']/a/i")
     public List<WebElement> firstProductAddToCart;
 
