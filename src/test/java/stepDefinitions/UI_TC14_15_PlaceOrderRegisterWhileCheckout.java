@@ -32,12 +32,12 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
     public void clickCartButton() {
         try {
             ReusableMethods.waitForVisibility(page.continueShoppingButton, 5);
-            page.continueShoppingButton.click();
+            ReusableMethods.jsScrollClick(page.continueShoppingButton);
 
         } catch (Exception e) {
 
         }
-        page.cartIcon.click();
+        ReusableMethods.jsScrollClick(page.cartIcon);
     }
 
     @Then("Verify that cart page is displayed")
@@ -131,14 +131,14 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
         ReusableMethods.waitForVisibility(page.reviewYourOrderHeader, 5);
         Assert.assertTrue(page.reviewYourOrderHeader.isDisplayed());
 
-        ReusableMethods.getScreenshotWebElement("Cart Items",page.cartItemsVerify);
+        ReusableMethods.getScreenshotWebElement("Cart Items", page.cartItemsVerify);
     }
 
 
     @And("Enter description in comment text area and click Place Order")
     public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
         page.messageTextBox.sendKeys(ReusableMethods.getFaker().toString());
-        page.placeOrderButton.click();
+        ReusableMethods.jsScrollClick(page.placeOrderButton);
     }
 
     @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")
@@ -155,20 +155,22 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
                 .sendKeys(ReusableMethods.dateYear())
                 .perform();
     }
+
     @And("Click Pay and Confirm Order button")
     public void clickPayAndConfirmOrderButton() {
-         page.payAndConfirmOrderButton.click();
+        page.payAndConfirmOrderButton.click();
     }
 
     @Then("Verify success message Your order has been placed successfully!")
     public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
         Assert.assertTrue(page.alertSucessButton.isDisplayed());
     }
+
     @Then("Verify ACCOUNT DELETED! and click Continue button")
     public void verifyACCOUNTDELETEDAndClickContinueButton() {
-       ReusableMethods.waitForVisibility(page.accountDeletedText, 5);
-       Assert.assertTrue(page.accountDeletedText.isDisplayed());
-       page.continueButton.click();
+        ReusableMethods.waitForVisibility(page.accountDeletedText, 5);
+        Assert.assertTrue(page.accountDeletedText.isDisplayed());
+        page.continueButton.click();
     }
 
 
