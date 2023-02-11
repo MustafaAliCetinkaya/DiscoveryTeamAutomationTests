@@ -31,16 +31,13 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
     @And("Click Cart button.")
     public void clickCartButton() {
         try {
-
             ReusableMethods.waitForVisibility(page.continueShoppingButton, 5);
             page.continueShoppingButton.click();
 
         } catch (Exception e) {
 
         }
-
         page.cartIcon.click();
-
     }
 
     @Then("Verify that cart page is displayed")
