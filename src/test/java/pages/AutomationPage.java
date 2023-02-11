@@ -302,7 +302,7 @@ public class AutomationPage {
     @FindBy(xpath = "//tr[1]/td[4]/button")
     public WebElement quantityInCart;
 
-    @FindBy(xpath = "//div[@class='single-products']//*[@class='productinfo text-center']/a")
+    @FindBy(xpath = "//div[@class='single-products']//*[@class='productinfo text-center']/a/i")
     public List<WebElement> firstProductAddToCart;
 
     @FindBy(xpath = "//*[text()='Continue Shopping']")

@@ -19,7 +19,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
     @And("Add products to cart")
     public void addProductsToCart() {
         try {
-            //ReusableMethods.jsScrollClick(page.firstProductAddToCart);
+            ReusableMethods.jsScrollClick(page.firstProductAddToCart.get(2));
 
         } catch (Exception e) {
 
@@ -75,15 +75,13 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
         ReusableMethods.getActions().sendKeys(Keys.TAB).sendKeys(Keys.TAB)
                 .sendKeys(ReusableMethods.getFaker().internet().password()).perform();
 
+        ReusableMethods.jsScrollClick(page.day);
+
         ReusableMethods.selectDropDown(page.day);
         ReusableMethods.selectDropDown(page.month);
         ReusableMethods.selectDropDown(page.year);
 
-        ReusableMethods.jsScrollClick(page.newslatter);
-
-        ReusableMethods.jsScrollClick(page.partners);
-
-        ReusableMethods.jsScroll(page.firstname);
+        ReusableMethods.jsScrollClick(page.firstname);
 
         ReusableMethods.getActions().click(page.firstname)
                 .sendKeys(ReusableMethods.getFaker().name().firstName())
@@ -96,6 +94,8 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
                 .sendKeys(Keys.TAB)
                 .sendKeys(ReusableMethods.getFaker().address().streetAddress()).perform();
 
+        ReusableMethods.jsScrollClick(page.country);
+
         ReusableMethods.selectDropDown(page.country);
         ReusableMethods.jsScroll(page.state);
         ReusableMethods.getActions().click(page.state).
@@ -107,7 +107,8 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
                 sendKeys(Keys.TAB).
                 sendKeys(ReusableMethods.getFaker().phoneNumber().phoneNumber()).perform();
 
-        page.createAccount.click();
+        ReusableMethods.jsScroll(page.createAccount);
+        ReusableMethods.jsScrollClick(page.createAccount);
     }
 
     @Then("Verify ACCOUNT CREATED! and click Continue button")
