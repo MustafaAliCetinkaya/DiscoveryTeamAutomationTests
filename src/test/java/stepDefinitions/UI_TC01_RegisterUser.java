@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.AutomationPage;
 import utilities.ConfigurationReader;
@@ -26,7 +27,7 @@ public class UI_TC01_RegisterUser {
     public void verifyThatHomePageIsVisibleSuccessfully() {
         String expectedData = "https://automationexercise.com/";
         String actualData = Driver.getDriver().getCurrentUrl();
-        assertEquals(expectedData, actualData);
+        Assert.assertEquals(expectedData, actualData);
     }
 
     @And("Click on Signup  Login button")
