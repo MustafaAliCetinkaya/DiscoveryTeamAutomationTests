@@ -163,7 +163,7 @@ public class UI_TC14_15_PlaceOrderRegisterWhileCheckout {
 
     @Then("Verify success message Your order has been placed successfully!")
     public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
-        Assert.assertTrue(page.alertSucessButton.isDisplayed());
+        Assert.assertTrue(page.alertSuccessButton.isDisplayed());
     }
 
     @Then("Verify ACCOUNT DELETED! and click Continue button")

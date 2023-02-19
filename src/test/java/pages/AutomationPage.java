@@ -210,7 +210,7 @@ public class AutomationPage {
     public WebElement searchButton;
     @FindBy(css = ".title.text-center")
     public WebElement searchedProducts;
-    @FindBy(css = "div.productinfo.text-center p")
+    @FindBy(css = "div.productInfo.text-center p")
     public List<WebElement> searchedProductNames;
     @FindBy(xpath = "//*[@class='features_items']")
     public WebElement wantedProduct;
@@ -341,14 +341,14 @@ public class AutomationPage {
 
 
     @FindBy(xpath = "//*[text()='Congratulations! Your order has been confirmed!']")
-    public WebElement alertSucessButton;
+    public WebElement alertSuccessButton;
 
     @FindBy(xpath = "//*[text()='Shopping Cart']")
     public WebElement shoppingCart;
 
     //TC16-17
     @FindBy(xpath = "//*[text()='View Cart']")
-    public WebElement WiewCart;
+    public WebElement ViewCart;
 
     @FindBy(xpath = "//*[text()='Proceed To Checkout']")
     public WebElement ProceedToCheckout;
