@@ -10,9 +10,11 @@ dryRun = false --> this will turn off dryRun, and our code will run as expected.
 */
 @RunWith(Cucumber.class)
 @CucumberOptions(
+
+        plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@TC009",
+        tags = "@outlineExercise",
         dryRun = false          //False-->Means directly start the tests / True-->Check for the missing methods, do not run
 )
 public class AutomationRunner {

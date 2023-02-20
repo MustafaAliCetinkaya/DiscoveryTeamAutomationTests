@@ -27,13 +27,13 @@ public class Hooks {
         System.out.println("====this will only apply to scenarios with @login tag");
     }
 
-    //@Before (value = "@db", order = 0)
+    //@Before (value = "@db", order = 0)    //Comes from cucumber-java. Do not select the Junit one.
     public void setupForDatabaseScenarios(){
         System.out.println("====this will only apply to scenarios with @db tag");
     }
 
 
-    @After
+    @After  //Comes from cucumber-java. Do not select the Junit one.
     public void teardownScenario(Scenario scenario){
 
         //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
@@ -54,7 +54,7 @@ public class Hooks {
         //System.out.println("====Scenario ended/ Take screenshot if failed!");
     }
 
-   // @BeforeStep
+   //@BeforeStep
     public void setupStep(){
         System.out.println("--------> applying setup using @BeforeStep");
     }

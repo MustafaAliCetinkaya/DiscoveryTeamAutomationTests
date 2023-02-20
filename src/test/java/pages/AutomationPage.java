@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.BrowserUtils;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -486,5 +488,23 @@ public class AutomationPage {
 
     @FindBy(css = ".fa.fa-angle-up")
     public WebElement scrollUpp;
+//----------------
+    public void forceToClickIfAdDisplayed(WebElement element) {
+        ReusableMethods.jsScrollClick(element);
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.jsScrollClick(element);
+    }
+
+    @FindBy(css = "input#search_product")
+    public WebElement searchProductBox;
+
+    @FindBy(css = "button#submit_search")
+    public WebElement searchButtonIcon;
+
+    @FindBy(xpath = "(//h2)[3]")
+    public WebElement searchProductPrice;
+
+    @FindBy(xpath = "(//p)[3]")
+    public WebElement firstSearchProductName;
 
 }

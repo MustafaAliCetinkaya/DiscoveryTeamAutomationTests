@@ -5,7 +5,7 @@
 #    - You can have as many tags as you want for a feature file or a scenario
 Feature: Amazon Search
   @amazonSearch
-  Scenario: TC01_User should be able to search item at the amazon website
+  Scenario: TC01_User should be able to search item at the given website
     Given user navigate to the amazon homepage
     When user writes different items to the search box one by one
     And user sorts the items by price from low to high
