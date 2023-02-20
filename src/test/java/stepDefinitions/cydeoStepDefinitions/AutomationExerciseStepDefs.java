@@ -7,6 +7,7 @@ import org.junit.Assert;
 import pages.AutomationPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class AutomationExerciseStepDefs {
     AutomationPage auto = new AutomationPage();
@@ -28,6 +29,7 @@ public class AutomationExerciseStepDefs {
     }
     @Then("First search result's {string} should contain search keyword")
     public void first_search_result_s_should_contain_search_keyword(String string) {
+        ReusableMethods.hover(auto.firstSearchProductName);
         String firstProductName=auto.firstSearchProductName.getText().toLowerCase();
         Assert.assertTrue(firstProductName.contains(string));
     }
