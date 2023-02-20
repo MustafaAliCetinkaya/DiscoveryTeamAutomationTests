@@ -6,10 +6,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import pages.AutomationPage;
-import utilities.BrowserUtils;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 public class AutomationExerciseStepDefs {
     AutomationPage auto = new AutomationPage();
