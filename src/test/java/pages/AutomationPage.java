@@ -501,10 +501,10 @@ public class AutomationPage {
     @FindBy(css = "button#submit_search")
     public WebElement searchButtonIcon;
 
-    @FindBy(xpath = "(//h2)[3]")
-    public WebElement searchProductPrice;
+    @FindBy(xpath = "(//div[@class=\"productinfo text-center\"]/h2)[1]")
+    public WebElement firstSearchProductPrice;
 
-    @FindBy(xpath = "(//p)[3]")
+    @FindBy(xpath = "(//div[@class=\"productinfo text-center\"]/p)[1]")
     public WebElement firstSearchProductName;
 
 }
