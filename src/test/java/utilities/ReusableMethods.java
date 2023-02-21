@@ -1,7 +1,7 @@
 package utilities;
 
 import com.github.javafaker.Faker;
-import org.apache.commons.io.FileUtils;
+import org.codehaus.plexus.util.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;

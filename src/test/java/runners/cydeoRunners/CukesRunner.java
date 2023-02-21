@@ -9,14 +9,14 @@ import org.junit.runner.RunWith;
         plugin = {
                 //"pretty",
                 "html:target/cucumber-report.html",
-                "rerun:target/rerun.txt",
-                //"me.jvt.cucumber.report.PrettyReports:target/cucumber",
+                //"rerun:target/rerun.txt",
+                "me.jvt.cucumber.report.PrettyReports:target/cucumber",
     },
         features = "src/test/resources/features",
         glue = "stepDefinitions",
         dryRun = false,
-        tags = "@Regression and @login",
-        publish = false
+        tags = "@Regression"
+        //publish = false
 
 )
 public class CukesRunner {
