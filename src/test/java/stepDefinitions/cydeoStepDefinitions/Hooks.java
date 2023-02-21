@@ -1,11 +1,16 @@
 package stepDefinitions.cydeoStepDefinitions;
 
 /*
-In the class we will be able to pass pre- & post- conditions to
+ In the class we will be able to pass pre- & post- conditions to
  each scenario and each step
 
  @Before and @After is executed before each scenario. They resemble @BeforeMethod/@AfterMethod in TestNG.
  @BeforeStep and @AfterStep is executed for each Gherkin sentence (@Given/And/Then annotation)
+
+Whatever happens in a Before hook is invisible to people who only read the features.
+You should consider using a background as a more explicit alternative, especially
+if the setup should be readable by non-technical people. Only use a Before hook for
+low-level logic such as starting a browser or deleting data from a database.
  */
 
 import io.cucumber.java.*;
