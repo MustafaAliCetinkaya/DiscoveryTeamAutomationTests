@@ -58,12 +58,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--A reporter plug-in for pretty Cucumber reports-->
-        <dependency>
-            <groupId>me.jvt.cucumber</groupId>
-            <artifactId>reporting-plugin</artifactId>
-            <version>7.2.0</version>
-        </dependency>
 
 
     </dependencies>

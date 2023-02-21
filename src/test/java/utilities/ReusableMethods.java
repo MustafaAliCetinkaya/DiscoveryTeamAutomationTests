@@ -1,7 +1,7 @@
 package utilities;
 
 import com.github.javafaker.Faker;
-import org.codehaus.plexus.util.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
