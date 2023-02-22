@@ -12,11 +12,13 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
     },*/
-        plugin = "html:target/cucumber-report.html",
+        plugin = {"html:target/cucumber-report.html",
+                  "rerun:target/rerunFailedTests.txt",
+        },
         features = "src/test/resources/features",
         glue = "stepDefinitions",
         dryRun = false,
-        tags = "@WebTableOrderExercise"
+        tags = "@amazonSearch"
         //publish = false
 
 )

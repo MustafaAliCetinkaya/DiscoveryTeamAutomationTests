@@ -14,7 +14,7 @@ public class AmazonSearchStepDefinitions {
 
     @Given("user navigate to the amazon homepage")
     public void user_navigate_to_the_amazon_homepage() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("amazon"));
+        Driver.getDriver().get("https://www.amazon.com/");
     }
 
     @When("user writes different items to the search box one by one")
