@@ -5,7 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.cydeoPages.BasePage;
 import pages.cydeoPages.OrderPage;
@@ -84,10 +86,8 @@ public class Order_StepDefinitions {
     }
     @When("user selects credit card type {string}")
     public void user_selects_credit_card_type(String expectedCardType) {
-
         //This line will loop through the list and decide which radio button to click
         BrowserUtils.clickRadioButton(orderPage.cardType, expectedCardType);
-
     }
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
