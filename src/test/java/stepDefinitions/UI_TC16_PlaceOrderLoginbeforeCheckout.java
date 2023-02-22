@@ -4,9 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.safari.SafariDriver;
 import pages.AutomationPage;
-import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 

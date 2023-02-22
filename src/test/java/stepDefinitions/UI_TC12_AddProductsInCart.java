@@ -4,6 +4,9 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import org.junit.Assert;
 import pages.AutomationPage;
+import pages.cydeoPages.AutomationExercisePage;
+import utilities.BrowserUtilities;
+import utilities.BrowserUtils;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -16,9 +19,7 @@ public class UI_TC12_AddProductsInCart {
 
     @And("Click Products button")
     public void clickProductsButton() {
-        page.products.click();
-        Driver.getDriver().navigate().refresh();
-        page.products.click();
+        new AutomationExercisePage().safeClickByCheckingThePageTitle(page.products,"Automation Exercise");
     }
 
     @And("Hover over first product and click Add to cart")
@@ -28,7 +29,7 @@ public class UI_TC12_AddProductsInCart {
 
     @And("Click Continue Shopping button")
     public void clickContinueShoppingButton() {
-        page.continueShopping.click();
+        new AutomationExercisePage().continueShoppingButton.click();
     }
 
     @And("Hover over second product and click Add to cart")
@@ -38,7 +39,7 @@ public class UI_TC12_AddProductsInCart {
 
     @And("Click View Cart button")
     public void clickViewCartButton() {
-        page.viewCart.click();
+        BrowserUtils.clickWithJS(new AutomationExercisePage().viewCartButton);
     }
 
     @And("Verify both products are added to Cart")

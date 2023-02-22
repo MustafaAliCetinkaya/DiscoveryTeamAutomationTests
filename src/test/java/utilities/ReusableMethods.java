@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -308,27 +307,11 @@ public class ReusableMethods {
         js.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
 
-
     public static Faker getFaker() {
 
         Faker faker;
         return faker = new Faker();
     }
-
-    public static String getScreenshot(String name) throws IOException {
-        // naming the screenshot with the current date to avoid duplication
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
-        File finalDestination = new File(target);
-        // save the screenshot to the path given
-        FileUtils.copyFile(source, finalDestination);
-        return target;
-    }
-
 
     //========ScreenShot Web Element(Bir webelementin resmini alma)=====//
     public static String getScreenshotWebElement(String name, WebElement element) throws IOException {
@@ -338,7 +321,22 @@ public class ReusableMethods {
         File source = element.getScreenshotAs(OutputType.FILE);
 
         // ekran görüntüsü konumunun tam yolu
-        String wElementSS = System.getProperty("user.dir") + "target/generated-test-sources" + name + date + ".png";
+        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + date + ".png";
+        File finalDestination = new File(wElementSS);
+
+        // ekran görüntüsünü verilen yola kaydedin
+        FileUtils.copyFile(source, finalDestination);
+        return wElementSS;
+    }
+
+    public static String zelihaScreenshotWebElement(String name, WebElement element) throws IOException {
+        String date = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(new Date());
+
+        // TakesScreenshot, ekran görüntüsünü alan bir selenyum arayüzüdür.
+        File source = element.getScreenshotAs(OutputType.FILE);
+
+        // ekran görüntüsü konumunun tam yolu
+        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + "_" +date + ".png";
         File finalDestination = new File(wElementSS);
 
         // ekran görüntüsünü verilen yola kaydedin

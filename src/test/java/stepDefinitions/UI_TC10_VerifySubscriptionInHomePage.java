@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.AutomationPage;
+import utilities.BrowserUtils;
 import utilities.ReusableMethods;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class UI_TC10_VerifySubscriptionInHomePage {
     @And("Enter email address in input and click arrow button")
     public void enterEmailAddressInInputAndClickArrowButton() {
         page.subscriptionEmailBox.sendKeys(Faker.instance().internet().emailAddress());
-        page.subscriptionOkButton.click();
+        BrowserUtils.clickWithJS(page.subscriptionOkButton);
     }
 
     @Then("Verify success message You have been successfully subscribed! is visible")

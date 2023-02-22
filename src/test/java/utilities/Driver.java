@@ -3,9 +3,12 @@ package utilities;
 import io.github.bonigarcia.wdm.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
+import org.openqa.selenium.edge.*;
 import org.openqa.selenium.firefox.*;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.remote.*;
 
+import java.net.*;
+import java.util.*;
 import java.util.concurrent.*;
 
 public class Driver {
@@ -20,14 +23,16 @@ public class Driver {
     We make WebDriver private, because we want to close access from outside the class.
     We make it static because we will use it in a static method.
      */
-    private static WebDriver driver; // value is null by default
+    //private static WebDriver driver; // value is null by default
+
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     /*
     Create a re-usable utility method which will return same driver instance when we call it
      */
     public static WebDriver getDriver(){
 
-        if (driver == null){
+        if (driverPool.get() == null){
 
             /*
             We read our browserType from configuration.properties.
@@ -41,36 +46,71 @@ public class Driver {
                 switch statement will determine the case, and open the matching browser
             */
             switch (browserType){
-
                 case "chrome":
+
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
-
-                case "safari" :
-                    WebDriverManager.safaridriver().setup();
-                    driver=new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-                    break;
-
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+                    driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+                case "remote-chrome":
+                    // assign your grid server address
+                    String gridAdress = "54.89.242.106"; // put your own Linux grid IP here
+                    try {
+                        URL url = new URL("http://"+gridAdress+":4444/wd/hub");
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName("chrome");
+                        driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                 break;
+                case "saucelab-chrome":
+                    try{
+                        URL url = new URL("https://oauth-sdetoscar-844c8:66e7117f-390e-4556-8105-07af96a01f7a@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName("chrome");
+                        driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    }catch (MalformedURLException e){
+                        e.printStackTrace();
+                    }
+
+            break;
+                case "saucelab-edge":
+                    EdgeOptions browserOptions = new EdgeOptions();
+                    browserOptions.setCapability("platformName", "Windows 11");
+                    browserOptions.setCapability("browserVersion", "latest");
+                    Map<String, Object> sauceOptions = new HashMap<>();
+                    sauceOptions.put("build", "<your build id>");
+                    sauceOptions.put("name", "<your test name>");
+                    browserOptions.setCapability("sauce:options", sauceOptions);
+
+                    URL url = null;
+                    try {
+                        url = new URL("https://oauth-sdetoscar-844c8:66e7117f-390e-4556-8105-07af96a01f7a@ondemand.eu-central-1.saucelabs.com:443/wd/hub");
+                        driverPool.set(new RemoteWebDriver(url,browserOptions));
+                        driverPool.get().manage().window().maximize();
+                        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                     break;
 
-                default:
-                    System.out.println("Unknown browser type: "+browserType);
-                    driver=null;
-
             }
+
         }
 
-        return driver;
+        return driverPool.get();
 
     }
 
@@ -78,27 +118,10 @@ public class Driver {
     This method will make sure our driver value is always null after using quit() method
      */
     public static void closeDriver(){
-        if (driver != null){
-            driver.quit(); // this line will terminate the existing session. Value will not even be null
-            driver = null;
+        if (driverPool.get() != null){
+            driverPool.get().quit(); // this line will terminate the existing session. value will not even be null
+            driverPool.remove();
         }
     }
+
 }
-
-   /*
-    POM'de Driver icin TestBase class'ina extends etmek yerine
-    Driver class'indan static methodlar kullanarak
-    driver olusturdum, ilgili ayarlarin yapilmasi
-    ve en sonda driver'in kapatilmasini tercih ettim.
-
-    POM'de Driver class'indaki getDriver()'in obje olusturularak kullanilmasini
-    engellemek icin
-    Singleton pattern kullanimi benimsenmistir
-
-    Singleton Pattern : tekli kullanim, bir class'in farkli class'lardan
-                        obje olusturarak kullanimini engellemek icin kullanilir
-
-    Bunu saglamak icin yapmamiz gereken sey oldukca basit
-    obje olusturmak icin kullanilan constructor'i private yaptiginizda
-    baska class'larda Driver class'indan obje olusturulmasi mumkun OLMAZ
-     */

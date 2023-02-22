@@ -2,10 +2,8 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import pages.AutomationPage;
 
-import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class UI_TC02_LoginUserCorrect {

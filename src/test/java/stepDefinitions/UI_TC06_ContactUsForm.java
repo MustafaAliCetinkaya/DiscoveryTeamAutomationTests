@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.AutomationPage;
-import utilities.BrowserUtils;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
