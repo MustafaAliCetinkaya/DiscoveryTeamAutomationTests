@@ -56,7 +56,7 @@ public class ExcelRead {
         //Smart logic for finding someone's job_ID
         for (int rowNum = 0; rowNum < usedRows; rowNum++) {
             if(sheet.getRow(rowNum).getCell(0).toString().equals("Merve")){
-                System.out.println(sheet.getRow(rowNum).getCell(0));
+                System.out.println("Merve's jod_I is: "+sheet.getRow(rowNum).getCell(2));
             }
         }
 
