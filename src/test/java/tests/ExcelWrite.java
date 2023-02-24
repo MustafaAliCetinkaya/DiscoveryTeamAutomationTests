@@ -1,12 +1,10 @@
 package tests;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 import utilities.BrowserUtilities;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
