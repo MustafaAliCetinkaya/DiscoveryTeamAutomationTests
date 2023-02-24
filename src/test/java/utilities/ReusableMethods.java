@@ -46,10 +46,21 @@ public class ReusableMethods {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public static Boolean waitForInvisibility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
 
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+
+    public static Boolean waitForInvisibility(By locator, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
 

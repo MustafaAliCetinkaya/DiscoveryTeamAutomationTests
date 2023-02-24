@@ -46,7 +46,7 @@ public class VyTrackDDTTest {
             vyTrackLoginPage.login(userName, password);
 
             WebElement loaderMask=Driver.getDriver().findElement(By.cssSelector("div.loader-mask"));
-
+            ReusableMethods.waitForInvisibility(loaderMask,30);
 
             String actualFullName = vyTrackDashboardPage.usernameDropdown.getText();
             String expectedFullName = firstName + " " + lastName;
