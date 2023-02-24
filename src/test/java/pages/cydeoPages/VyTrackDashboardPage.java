@@ -12,6 +12,14 @@ public class VyTrackDashboardPage {
 
     @FindBy(css = "li[id='user-menu'] a[data-toggle='dropdown']")
     public WebElement usernameDropdown;
+
+    @FindBy(css = "a[class='no-hash']")
+    public WebElement linkLogout;
+
+    public void logout(){
+        usernameDropdown.click();
+        linkLogout.click();
+    }
     
     
 }
