@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "stepDefinitions",
         dryRun = false,
         tags = "@TC012"
-        //publish = false
+        //publish = true will enable a functionality from cucumber to generate a public daily link for the report of our final execution of our code
 
 )
 public class CukesRunner {
