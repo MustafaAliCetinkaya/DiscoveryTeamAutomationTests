@@ -12,7 +12,7 @@ dryRun = false --> this will turn off dryRun, and our code will run as expected.
 @CucumberOptions(
 
         plugin = {
-                //"pretty",
+                //"pretty", not necessary. Because basically it just prints out additional information about the scenario that is being executed.
                 "html:target/cucumber-report.html",
                 "rerun:target/rerun.txt",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
