@@ -24,6 +24,18 @@ public class VyTrackLoginPage {
         passwordBox.sendKeys(password);
         buttonSubmit.click();
     }
+
+    @FindBy(id = "prependedInput")
+    public WebElement userNameInput;
+
+    @FindBy(id = "prependedInput2")
+    public WebElement passwordInput;
+
+    @FindBy(id = "_submit")
+    public WebElement submitBtn;
+
+    @FindBy(xpath = "//div[@class=\"alert alert-error\"]/div")
+    public WebElement msg;
     
     
 }

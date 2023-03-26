@@ -4,6 +4,8 @@ import io.cucumber.java.en.*;
 import org.junit.*;
 import org.openqa.selenium.*;
 import pages.*;
+import pages.cydeoPages.LabLoginPage;
+import pages.cydeoPages.ShoppingPage;
 import utilities.*;
 
 public class SwagLabLoginSteps {

@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import io.cucumber.java.it.*;
 import org.junit.*;
 import pages.*;
+import pages.cydeoPages.ShoppingPage;
 
 import java.util.*;
 

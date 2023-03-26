@@ -6,6 +6,8 @@ import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import pages.*;
+import pages.cydeoPages.DashboardPage;
+import pages.cydeoPages.VyTrackLoginPage;
 import utilities.*;
 
 public class VyTrackLoginTest {

@@ -5,6 +5,7 @@ import io.cucumber.java.et.*;
 import org.junit.*;
 import org.openqa.selenium.*;
 import pages.*;
+import pages.cydeoPages.ShoppingPage;
 import utilities.*;
 
 public class DataTestSteps {
